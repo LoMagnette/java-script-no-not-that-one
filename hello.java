@@ -1,9 +1,12 @@
-import dev.langchain4j.model.ollama.OllamaChatModel;
-import dev.langchain4j.model.chat.ChatModel;
-
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS dev.langchain4j:langchain4j:1.11.0
 //DEPS dev.langchain4j:langchain4j-ollama:1.11.0
+//NATIVE_OPTIONS --no-fallback -H:+ReportExceptionStackTraces
+//NATIVE_OPTIONS -H:ReflectionConfigurationFiles=reflect-config.json
+//FILES reflect-config.json
+
+import dev.langchain4j.model.ollama.OllamaChatModel;
+import dev.langchain4j.model.chat.ChatModel;
 
 void main(){
     ChatModel chatModel = OllamaChatModel.builder()
