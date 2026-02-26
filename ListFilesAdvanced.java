@@ -7,26 +7,23 @@ import java.util.Arrays;
 import files.FileMetadata;
 import files.FilePrinterService;
 
-public class ListFilesAdvanced {
+void main() {
 
-    public static void main(String[] args) {
-
-        System.out.println("Please enter the path you want to use to list file (ie: /bin/):");
-        var path = "";
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            path = reader.readLine();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        // list files in a directory
-        var dir = new File(path);
-        if (!dir.exists() || !dir.isDirectory()) {
-            System.out.println("The path you entered is not a valid directory.");
-            return;
-        }
-        var files = Arrays.stream(dir.listFiles()).map(FileMetadata::fromFile).toList();
-        new FilePrinterService().prettyPrintFiles(files);
+    System.out.println("Please enter the path you want to use to list file (ie: /bin/):");
+    var path = "";
+    try {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        path = reader.readLine();
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
     }
+
+    // list files in a directory
+    var dir = new File(path);
+    if (!dir.exists() || !dir.isDirectory()) {
+        System.out.println("The path you entered is not a valid directory.");
+        return;
+    }
+    var files = Arrays.stream(dir.listFiles()).map(FileMetadata::fromFile).toList();
+    new FilePrinterService().prettyPrintFiles(files);
 }
