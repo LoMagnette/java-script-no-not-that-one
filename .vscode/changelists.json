@@ -3,8 +3,8 @@
     {
       "name": "Default",
       "files": [
-        "hello.java",
-        ".vscode/changelists.json"
+        ".vscode/changelists.json",
+        "GithubInspector.java"
       ]
     }
   ],
