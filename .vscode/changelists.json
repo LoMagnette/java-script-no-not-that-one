@@ -3,8 +3,8 @@
     {
       "name": "Default",
       "files": [
-        "ListFilesAdvanced.java",
-        ".vscode/changelists.json"
+        ".vscode/changelists.json",
+        "ListFiles"
       ]
     }
   ],
