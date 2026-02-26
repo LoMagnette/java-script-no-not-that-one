@@ -4,9 +4,7 @@
       "name": "Default",
       "files": [
         ".vscode/changelists.json",
-        "files/FileMetadata.java",
-        "files/FilePrinterService.java",
-        "files/ListFiles.java"
+        "ListFilesAdvanced.java"
       ]
     }
   ],
