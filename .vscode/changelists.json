@@ -3,7 +3,6 @@
     {
       "name": "Default",
       "files": [
-        ".vscode/changelists.json",
         "GithubInspector.java"
       ]
     }

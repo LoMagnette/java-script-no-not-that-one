@@ -188,7 +188,7 @@ public class GithubInspector extends ToolkitApp {
             this.searchField.focusable(false);
 
         } catch (Exception e) {
-            this.status = "An error occured: "+System.getenv("GITHUB_OAUTH_KEY") + e;
+            this.status = "An error occured: "+ e;
         }
     }
 }
