@@ -3,7 +3,10 @@
     {
       "name": "Default",
       "files": [
-        "README.md"
+        ".vscode/changelists.json",
+        "files/FileMetadata.java",
+        "files/FilePrinterService.java",
+        "files/ListFiles.java"
       ]
     }
   ],
