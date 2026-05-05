@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "tmux split-window -h -d -P -F '#{pane_id}' '.claude/DukeRunner' > /tmp/claude-hook-duke-pane",
+            "timeout": 10,
+            "statusMessage": "Starting DukeRunner..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f /tmp/claude-hook-duke-pane ] && tmux kill-pane -t \"$(cat /tmp/claude-hook-duke-pane)\" 2>/dev/null; rm -f /tmp/claude-hook-duke-pane",
+            "timeout": 5,
+            "statusMessage": "Stopping DukeRunner..."
+          }
+        ]
+      }
+    ]
+  }
+}
