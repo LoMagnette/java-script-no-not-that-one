@@ -1,0 +1,30 @@
+#!/usr/bin/java --source 25
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+void main() {
+    var input = IO.readln("Which file(s) should the dog fetch? (space-separated):");
+
+    List.of(input.trim().split("\\s+")).stream()
+            .map(Path::of)
+            .filter(Files::isRegularFile)
+            .forEach(f -> printFile(f));
+
+}
+
+private static void printFile(Path path) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(path.toString()))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+    }
+}
+
