@@ -14,16 +14,7 @@ import files.*;
 private static boolean lineNumer = true;
 
 void main() {
-    System.out.println("Which file(s) should the dog fetch? (space-separated):");
-    var input = "";
-    try {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        input = reader.readLine();
-    } catch (IOException ioe) {
-        ioe.printStackTrace();
-    }
-
-
+    var input = IO.readln("Which file(s) should the dog fetch? (space-separated):");
     var files = List.of(input.trim().split("\\s+")).stream()
             .map(Path::of)
             .map(DogFile::fromPath)
@@ -32,5 +23,4 @@ void main() {
             .toList();
 
     new DogPrinterService(lineNumer).fetch(files);
-
 }
