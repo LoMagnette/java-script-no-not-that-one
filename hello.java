@@ -1,20 +1,24 @@
-///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS dev.langchain4j:langchain4j:1.11.0
-//DEPS dev.langchain4j:langchain4j-ollama:1.11.0
+/// usr/bin/env jbang "$0" "$@" ; exit $?
+//DEPS dev.langchain4j:langchain4j:1.19.0
+//DEPS dev.langchain4j:langchain4j-ollama:1.19.0
 //NATIVE_OPTIONS --no-fallback -H:+ReportExceptionStackTraces
 //NATIVE_OPTIONS -H:ReflectionConfigurationFiles=reflect-config.json
 //FILES reflect-config.json
 
-import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.model.chat.ChatModel;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 
-void main(){
-    ChatModel chatModel = OllamaChatModel.builder()
-    .baseUrl("http://localhost:11434")
-    .modelName("llama3.2:latest")
-    .logRequests(true)
-    .build();
-
-    String answer = chatModel.chat("Provide 3 short bullet points explaining why Java is awesome for writing scripts");
-    System.out.println(answer);
+void main() {
+    var chatModel = OllamaChatModel.builder()
+            .baseUrl("http://localhost:11434")
+            .modelName("gemma4:e4b-mlx")
+            .logRequests(true)
+            .build();
+    String answer = chatModel.chat(
+            """
+            You are a witty senior Linux developer with a dry, slightly absurd sense of humor.,
+            Why is there no dog command in Linux when there's a cat one ?
+            """
+    );
+    IO.println(answer);
 }
